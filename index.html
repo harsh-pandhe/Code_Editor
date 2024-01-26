@@ -4,13 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Editor</title>
+    <title>Python Code Editor</title>
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+    <script src="codemirror/lib/codemirror.js"></script>
+    <script src="codemirror/mode/python/python.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container"></div>
+    <h1>Python Code Editor</h1>
+
+    <!-- Add CodeMirror textarea for code input -->
+    <textarea id="codeInput"></textarea>
+
+    <!-- Add a button to execute the code -->
+    <button onclick="executeCode()">Execute Code</button>
+
+    <!-- Add a console for code execution output -->
+    <div id="console"></div>
+
+    <!-- Update the paths based on your project structure -->
+    <script type="module" src="/     "></script>
+    <script type="module" src="/path/to/codemirror/mode/python/python.js"></script>
+    
     <script type="module" src="script.js"></script>
-</body>
+    </body>
 
 </html>
