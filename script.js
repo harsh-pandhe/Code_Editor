@@ -1,3 +1,7 @@
+const sanitizeInput = (input) => {
+    return DOMPurify.sanitize(input);
+};
+
 const html_code = document.getElementById('html_section');
 const css_code = document.getElementById('css_section');
 const js_code = document.getElementById('js_section');
@@ -68,8 +72,4 @@ const download = () => {
     } catch (error) {
         console.error('Error generating download:', error);
     }
-};
-
-const sanitizeInput = (input) => {
-    return DOMPurify.sanitize(input);
 };
