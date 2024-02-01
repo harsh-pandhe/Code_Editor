@@ -9,43 +9,67 @@ const download_btn = document.getElementById('download_btn');
 const previewFrame = document.getElementById('preview');
 const output = document.getElementById('output');
 
-const Update = () => {
-    const html = html_code.value;
-    const css = `<style>${css_code.value}</style>`
-    const js = `<script>${js_code.value}</script>`
+try {
+    // Load code from localStorage
+    html_code.value = sanitizeInput(localStorage.getItem('html')) || '';
+    css_code.value = sanitizeInput(localStorage.getItem('css')).replace('<style>', '').replace('</style>', '').replace('</>', '');
+    js_code.value = sanitizeInput(localStorage.getItem('js')).replace('<script>', '').replace('</script>', '');
+} catch (error) {
+    console.error('Error loading code from localStorage:', error);
+}
 
-    const code = `${html}\n${css}\n${js}`
-    output.innerHTML = code;
+const update = () => {
+    try {
+        const html = sanitizeInput(html_code.value);
+        const css = `<style>${sanitizeInput(css_code.value)}</style>`;
+        const js = `<script>${sanitizeInput(js_code.value)}</script>`;
+
+        localStorage.setItem('html', html);
+        localStorage.setItem('css', css);
+        localStorage.setItem('js', js);
+
+        const code = `${html}\n${css}\n${js}`;
+        output.innerHTML = code;
+    } catch (error) {
+        console.error('Error updating code and localStorage:', error);
+    }
 };
 
-run_btn.addEventListener('click', () => {
-    Update();
-});
-
-const Clear = () => {
+const clear = () => {
     html_code.value = '';
     css_code.value = '';
     js_code.value = '';
-}
+    update();
+};
+
+run_btn.addEventListener('click', () => {
+    update();
+});
 
 clear_btn.addEventListener('click', () => {
-    Clear();
-    Update();
+    clear();
 });
 
 const download = () => {
-    const html = html_code.value;
-    const css = css_code.value;
-    const js = js_code.value;
+    try {
+        const html = sanitizeInput(html_code.value);
+        const css = sanitizeInput(css_code.value);
+        const js = sanitizeInput(js_code.value);
 
-    const code = `HTML CODE:\n${html}\n\nCSS CODE:\n${css}\n\nJS CODE:\n${js}`;
+        const code = `HTML CODE:\n${html}\n\nCSS CODE:\n${css}\n\nJS CODE:\n${js}`;
 
-    const blob = new Blob([code], { type: 'text/javascript' });
-    const url = URL.createObjectURL(blob);
+        const blob = new Blob([code], { type: 'text/javascript' });
+        const url = URL.createObjectURL(blob);
 
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = "code.txt";
-    a.click();
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'code.txt';
+        a.click();
+    } catch (error) {
+        console.error('Error generating download:', error);
+    }
+};
 
-}
+const sanitizeInput = (input) => {
+    return DOMPurify.sanitize(input);
+};
