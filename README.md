@@ -71,11 +71,10 @@ These instructions will help you set up the project on your local machine for de
 6. **Explore and experiment:** Play around with the editor to create and test your web code.
 
 ## Screenshot: Web Code Editor
-
-A Visual representation of the [Web Code Editor](/images/img_01.jpg).
-
-
-
+<p align="center">
+  <img src="/images/img_01.jpg" alt="Web Code Editor" style="margin: 10px;">
+   A Visual representation of the Web Code Editor.
+</p>
 
 ## Languages & Technologies
 
