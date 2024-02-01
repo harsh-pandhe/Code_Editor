@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="filter.css">
+</head>
+
+<body class="container">
+    <nav class="navbar navbar-expand-lg bg-light border-bottom border-body rounded mt-2 my-2">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link ">Source Code</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="https://github.com/harsh-pandhe" class="btn btn-outline-success">About US</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="my-2">
+        <div class="d-flex flex-column justify-content-evenly">
+            <div class="mt-2 flex-fill">
+                <label class="lead" for="html_section">HTML CODE</label>
+                <br>
+                <textarea class="form-control" id="html_section" cols="30" rows="10"></textarea>
+            </div>
+            <div class="mt-2 flex-fill">
+                <label class="lead" for="css_section">CSS CODE</label>
+                <br>
+                <textarea class="form-control" id="css_section" cols="30" rows="10"></textarea>
+            </div>
+            <div class="mt-2 my-0 flex-fill">
+                <label class="lead" for="js_section">JS CODE</label>
+                <br>
+                <textarea class="form-control" id="js_section" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="mt-2 my-0">
+            <label class="lead" for="">OUTPUT</label>
+            <div id="output" class="d-inline-flex py-1 px-2 text-decoration-none border rounded-2"></div>
+        </div>
+        <div class="d-flex justify-content-end mt-3">
+            <button type="button" id="run_btn" class="mx-2 btn btn-outline-dark">Run Code</button>
+            <button type="button" id="clear_btn" class="mx-2 btn btn-outline-dark">Clear Code</button>
+            <button type="button" id="download_btn" onclick="download()" class="mx-2 btn btn-outline-dark">Download
+                Code</button>
+        </div>
+    </main>
+
+    <footer> </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="backend.js"></script>
+</body>
+
+</html>

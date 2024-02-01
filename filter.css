@@ -1,0 +1,11 @@
+iframe {
+  width: 100%;
+  height: calc(100% - 320px);
+  border: none;
+}
+
+#output {
+  height: 200px;
+  border: 1px solid black;
+  width: 100%;
+}
